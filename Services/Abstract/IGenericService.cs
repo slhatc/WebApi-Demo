@@ -6,16 +6,16 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Data
+namespace Services.Abstract
 {
-    public interface IEntityRepository<T> where T : class,IEntity,new()
+    public interface IGenericService<T> where T : class, IEntity, new()
     {
         Task<T> AddAsync(T entity);
         Task<T> UpdateAsync(T entity);
         Task DeleteAsync(T entity);
         Task<T> GetAsync(Expression<Func<T, bool>> filter);
         Task<T> GetByIdAsync(int id);
-        Task<IList<T>> GetAllAsync();
+        Task<IEnumerable<T>> GetAllAsync();
         IQueryable<T> GetList(Expression<Func<T, bool>> filter = null);
     }
 }

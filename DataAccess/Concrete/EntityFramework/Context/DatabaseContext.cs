@@ -10,11 +10,14 @@ namespace DataAccess.Concrete.EntityFramework.Context
 {
     public  class DatabaseContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-5OJUM63\\SQLEXPRESS; Database=NORTHWND; Integrated Security=True;");
-        }
+        //public override void OnConfiguring(DbContextOptionsBuilder optionsBuilder):base(optionsBuilder)
+        //{
 
+        //}
+        public DatabaseContext (DbContextOptions<DatabaseContext> options): base(options)
+        {
+
+        }
         public DbSet<Customers> Customers { get; set; }
         public DbSet<Products> Products { get; set; }
     }

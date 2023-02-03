@@ -28,9 +28,9 @@ namespace Common.Data.EntityFramework
             await Task.Run(() => { _context.Set<TEntity>().Remove(entity); });
         }
 
-        public async Task<IList<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter)
+        public async Task<IList<TEntity>> GetAllAsync()
         {
-            return await _context.Set<TEntity>().Where(filter).ToListAsync();
+            return await _context.Set<TEntity>().ToListAsync();
         }
 
         public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> filter)

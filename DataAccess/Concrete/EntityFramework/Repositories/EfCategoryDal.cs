@@ -1,6 +1,5 @@
 ﻿using Common.Data.EntityFramework;
 using DataAccess.Abstract;
-using DataAccess.Concrete.EntityFramework.Context;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework.Repositories
 {
-    public class EfProductDal : EfRepositoryBase<Products>, IProductDal
+    public class EfCategoryDal : EfRepositoryBase<Categories>, ICategoryDal
     {
-        public EfProductDal(DbContext context) : base(context)
+        public EfCategoryDal(DbContext context) : base(context)
         {
 
         }

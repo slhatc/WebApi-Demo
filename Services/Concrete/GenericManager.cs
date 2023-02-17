@@ -14,12 +14,14 @@ namespace Services.Concrete
     public class GenericManager<T> : IGenericService<T> where T : class, IEntity, new()
     {
         private readonly IEntityRepository<T> _entityRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        protected readonly IUnitOfWork _unitOfWork;
 
-        public GenericManager(IEntityRepository<T> entityRepository, IUnitOfWork unitOfWork)
+
+        public GenericManager(IEntityRepository<T> entityRepository,IUnitOfWork unitOfWork)
         {
             _entityRepository = entityRepository;
             _unitOfWork = unitOfWork;
+           
         }
 
         public async Task<T> AddAsync(T entity)
@@ -32,7 +34,7 @@ namespace Services.Concrete
         public async Task DeleteAsync(T entity)
         {
             await _entityRepository.DeleteAsync(entity);
-            await _unitOfWork.SaveAsync();  
+            await _unitOfWork.SaveAsync();
 
         }
 

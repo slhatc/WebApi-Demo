@@ -10,17 +10,18 @@ using System.Threading.Tasks;
 
 namespace Services.Concrete
 {
-    public class CustomerManager : GenericManager<Customers>, ICustomerService
-    {
-        private readonly IEntityRepository<Customers> _entityRepository;
-        private readonly ICustomerService _customerService;
-        private readonly IUnitOfWork _unitOfWork;
+    //public class CustomerManager : GenericManager<Customers>, ICustomerService
+    //{
+    //    private readonly IEntityRepository<Customers> _entityRepository;
+    //    private readonly ICustomerService _customerService;
+    //    private readonly IUnitOfWork _unitOfWork;
 
-        public CustomerManager(IEntityRepository<Customers> entityRepository, ICustomerService customerService,IUnitOfWork unitOfWork):base(entityRepository,unitOfWork)
-        {
-            _entityRepository = entityRepository;
-            _customerService = customerService;
-            _unitOfWork = unitOfWork;
-        }
-    }
+    //    public CustomerManager(IEntityRepository<Customers> entityRepository, ICustomerService customerService,IUnitOfWork unitOfWork):base(entityRepository,unitOfWork)
+    //    {
+    //        _entityRepository = entityRepository;
+    //        _customerService = customerService;
+    //        _unitOfWork = unitOfWork;
+    //    }
+
+    //}
 }

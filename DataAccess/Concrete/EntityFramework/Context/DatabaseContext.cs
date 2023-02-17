@@ -10,15 +10,13 @@ namespace DataAccess.Concrete.EntityFramework.Context
 {
     public  class DatabaseContext : DbContext
     {
-        //public override void OnConfiguring(DbContextOptionsBuilder optionsBuilder):base(optionsBuilder)
-        //{
-
-        //}
-        public DatabaseContext (DbContextOptions<DatabaseContext> options): base(options)
+        public DatabaseContext(DbContextOptions<DatabaseContext> options): base(options)
         {
 
         }
-        public DbSet<Customers> Customers { get; set; }
+  
+        //public DbSet<Customers> Customers { get; set; }
         public DbSet<Products> Products { get; set; }
+        public DbSet<Categories> Categories { get; set; }
     }
 }

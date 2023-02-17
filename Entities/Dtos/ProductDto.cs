@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Entities.Dtos
 {
-    public class Products : IEntity
+    public class ProductDto:BaseDto
     {
         [Key]
         public int ProductID { get; set; }
@@ -25,11 +25,8 @@ namespace Entities.Concrete
 
         public Int16? UnitsInStock { get; set; }
 
-        public Int16? UnitsOnOrder { get; set; }
+        //public Int16? UnitsOnOrder { get; set; }
 
-        public Int16? ReorderLevel { get; set; }
-
-
-
+        //public Int16? ReorderLevel { get; set; }
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Common.Data.EntityFramework
 {
-    public class EfRepositoryBase<TEntity> : IEntityRepository<TEntity> where TEntity : class, IEntity, new()
+    public class EfRepositoryBase<TEntity> : IEntityRepository<TEntity> where TEntity : class, IEntity, new()       
     {
         protected readonly DbContext _context;
         public EfRepositoryBase(DbContext context)

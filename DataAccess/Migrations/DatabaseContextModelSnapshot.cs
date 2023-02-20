@@ -22,6 +22,28 @@ namespace DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Entities.Concrete.Categories", b =>
+                {
+                    b.Property<int>("CategoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryID"));
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Picture")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("CategoryID");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Products", b =>
                 {
                     b.Property<int>("ProductID")
@@ -45,8 +67,8 @@ namespace DataAccess.Migrations
                     b.Property<int?>("SupplierID")
                         .HasColumnType("int");
 
-                    b.Property<double?>("UnitPrice")
-                        .HasColumnType("float");
+                    b.Property<decimal?>("UnitPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<short?>("UnitsInStock")
                         .HasColumnType("smallint");

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230215130329_Demo")]
+    [Migration("20230219195041_Demo")]
     partial class Demo
     {
         /// <inheritdoc />
@@ -24,6 +24,28 @@ namespace DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Entities.Concrete.Categories", b =>
+                {
+                    b.Property<int>("CategoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryID"));
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Picture")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("CategoryID");
+
+                    b.ToTable("Categories");
+                });
 
             modelBuilder.Entity("Entities.Concrete.Products", b =>
                 {
@@ -48,8 +70,8 @@ namespace DataAccess.Migrations
                     b.Property<int?>("SupplierID")
                         .HasColumnType("int");
 
-                    b.Property<double?>("UnitPrice")
-                        .HasColumnType("float");
+                    b.Property<decimal?>("UnitPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<short?>("UnitsInStock")
                         .HasColumnType("smallint");

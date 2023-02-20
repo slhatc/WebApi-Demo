@@ -32,8 +32,8 @@ namespace Services.Extensions
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<ICategoryService, CategoryManager>();
 
-            //services.AddScoped<IProductDal, EfProductDal>();
-            //services.AddScoped<ICategoryDal, EfCategoryDal>();
+            services.AddScoped<IProductDal, EfProductDal>();
+            services.AddScoped<ICategoryDal, EfCategoryDal>();
             return services;
 
         }

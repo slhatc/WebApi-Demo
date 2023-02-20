@@ -26,6 +26,7 @@ namespace WebApi_Demo.Controllers
 
         }
         [HttpPost]
+  
         public async Task<IActionResult> Create(CategoryDto categoryDto)
         {
             var category = await _categoryService.AddAsync(_mapper.Map<Categories>(categoryDto));

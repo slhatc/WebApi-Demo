@@ -25,15 +25,15 @@ namespace Services.Extensions
             services.AddScoped(typeof(IEntityRepository<>), typeof(EfRepositoryBase<>));
             services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddAutoMapper(Assembly.GetEntryAssembly());
+            //services.AddAutoMapper(Assembly.GetEntryAssembly(typeof(MapProfile)));
             //services.AddScoped<ICustomerService, CustomerManager>();
             //services.AddScoped<ICustomerDal, EfCustomerDal>();
 
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<ICategoryService, CategoryManager>();
 
-            services.AddScoped<IProductDal, EfProductDal>();
-            services.AddScoped<ICategoryDal, EfCategoryDal>();
+            //services.AddScoped<IProductDal, EfProductDal>();
+            //services.AddScoped<ICategoryDal, EfCategoryDal>();
             return services;
 
         }

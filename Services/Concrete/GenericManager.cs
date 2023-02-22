@@ -17,11 +17,11 @@ namespace Services.Concrete
         protected readonly IUnitOfWork _unitOfWork;
 
 
-        public GenericManager(IEntityRepository<T> entityRepository,IUnitOfWork unitOfWork)
+        public GenericManager(IEntityRepository<T> entityRepository, IUnitOfWork unitOfWork)
         {
             _entityRepository = entityRepository;
             _unitOfWork = unitOfWork;
-           
+
         }
 
         public async Task<T> AddAsync(T entity)

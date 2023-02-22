@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Services.Abstract
 {
-    public interface IGenericService<T> where T : class 
+    public interface IGenericService<T> 
     {
+        //void Add(T entity);
         Task<T> AddAsync(T entity);
         Task<T> UpdateAsync(T entity);
         Task DeleteAsync(T entity);

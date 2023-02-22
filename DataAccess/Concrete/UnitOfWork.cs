@@ -1,6 +1,7 @@
 ﻿using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework.Context;
 using DataAccess.Concrete.EntityFramework.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,15 @@ namespace DataAccess.Concrete
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DatabaseContext _context;
+        private readonly DbContext _context;
         //private EfCustomerDal _customerDal;
         private EfProductDal _productDal;
         private EfCategoryDal _categoryDal;
 
-        public UnitOfWork(DatabaseContext context)
+        public UnitOfWork(DbContext context)
         {
             _context = context;
+           
         }
 
         //public ICustomerDal Customers => _customerDal ?? new EfCustomerDal(_context);

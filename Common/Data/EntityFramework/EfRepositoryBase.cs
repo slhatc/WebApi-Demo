@@ -26,6 +26,7 @@ namespace Common.Data.EntityFramework
         public async Task DeleteAsync(TEntity entity)
         {
             await Task.Run(() => { _context.Set<TEntity>().Remove(entity); });
+            //_context.SaveChanges();
         }
 
         public async Task<IList<TEntity>> GetAllAsync()
@@ -55,5 +56,6 @@ namespace Common.Data.EntityFramework
             await Task.Run(() => { _context.Set<TEntity>().Update(entity); });
             return entity;
         }
+
     }
 }

@@ -10,8 +10,7 @@ namespace Entities.Dtos
 {
     public class CategoryDto : BaseDto
     {
-        [Required]
-        public int CategoryID { get; set; }
+        //public int CategoryID { get; set; }
 
         public string? CategoryName { get; set; }
 

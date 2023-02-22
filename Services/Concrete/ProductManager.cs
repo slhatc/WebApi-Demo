@@ -14,12 +14,12 @@ namespace Services.Concrete
     {
         private readonly IEntityRepository<Products> _entityRepository;
 
-        private readonly IUnitOfWork _unitOfWork;
+        //private readonly IUnitOfWork _unitOfWork;
         public ProductManager(IEntityRepository<Products> entityRepository, IUnitOfWork unitOfWork) : base(entityRepository,unitOfWork)
         {
             _entityRepository = entityRepository;
 
-            _unitOfWork = unitOfWork;
+            //_unitOfWork = unitOfWork;
         }
     }
 }

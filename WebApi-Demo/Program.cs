@@ -6,6 +6,7 @@ using Services.Abstract;
 using Services.Concrete;
 using Services.Extensions;
 using System.Reflection;
+using WebApi_Demo.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDependencies();
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer
 (builder.Configuration.GetConnectionString("DbNortwind")));
+builder.Services.AddAutoMapper(typeof(MapProfile));
+
 //builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 //builder.Services.AddHttpClient();
 //builder.Services.AddMvc();
@@ -35,6 +38,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

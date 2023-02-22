@@ -1,6 +1,7 @@
 ﻿using Common.Data;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dtos;
 using Services.Abstract;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,9 @@ namespace Services.Concrete
 {
     public  class CategoryManager : GenericManager<Categories>, ICategoryService
     {
-        public CategoryManager(IEntityRepository<Categories> entityRepository, IUnitOfWork unitOfWork) : base(entityRepository, unitOfWork)
+        public CategoryManager(IEntityRepository<Categories> entityRepository, IUnitOfWork unitOfWork) : base(entityRepository,unitOfWork)
         {
-
+      
         }
     }
 }

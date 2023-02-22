@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace Services.Abstract
 {
     public interface ICategoryService : IGenericService<Categories>
     {
+
     }
 }

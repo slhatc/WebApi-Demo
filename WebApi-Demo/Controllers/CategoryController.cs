@@ -4,6 +4,7 @@ using Entities.Concrete;
 using Entities.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Services.Abstract;
+using System.ComponentModel.Design;
 using System.Net;
 
 namespace WebApi_Demo.Controllers
@@ -33,25 +34,29 @@ namespace WebApi_Demo.Controllers
         public async Task<IActionResult> Create(CategoryDto categoryDto)
         {
             var category = await _categoryService.AddAsync(_mapper.Map<Categories>(categoryDto));
-            //var result = await _unitOfWork.SaveAsync();
-            if ( category == null)
-            {
-                return BadRequest();
-            }
-            //var categories = _mapper.Map<CategoryDto>(category);
-            //return this.StatusCode(201,categories);
-            return Content(HttpStatusCode.Created.ToString());
+            var categories = _mapper.Map<CategoryDto>(category);
+            return this.StatusCode(201, categories);
+
 
         }
 
-        //[HttpPut]
-        //public async Task<IActionResult> Edit(CategoryDto categoryDto)
-        //{
-        //    var category = await _categoryService.AddAsync(_mapper.Map<Categories>(categoryDto));
-        //    var categories = _mapper.Map<CategoryDto>(category);
-        //    return this.StatusCode(201, categories);
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Edit(int id,CategoryDto categoryDto)
+        {
+            var control = _categoryService.GetByIdAsync(id);
+            if (control.Result != null)
+            {
+                control.Result.CategoryName = categoryDto.CategoryName;
+                control.Result.Description = categoryDto.Description;
+                await _categoryService.UpdateAsync(control.Result);
+            }
+            else
+            {
+                return BadRequest();
+            }
+            return NoContent();
 
-        //}
+        }
 
 
         [HttpDelete("{id}")]

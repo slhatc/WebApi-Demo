@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Abstract;
 using System.ComponentModel.Design;
@@ -22,6 +23,7 @@ namespace WebApi_Demo.Controllers
             _unitOfWork = unitOfWork;
             _categoryService = categoryService;
         }
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

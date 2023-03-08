@@ -1,23 +1,18 @@
 ﻿using Common.Entity;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Entities.Dtos
 {
-    public class Customers : IEntity
+    public class CustomerDto : BaseDto
     {
-        [Key]
-        public char CustomerID { get; set; }
-
-        public string CompanyName { get; set; }
+        public string? CompanyName { get; set; }
 
         public string? ContactName { get; set; }
 
         public string? City { get; set; }
-
     }
 }

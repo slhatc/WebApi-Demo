@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Services.Abstract
 {
-    //public interface ICustomerService: IGenericService<Customers>
-    //{
+    public interface ICustomerService : IGenericService<Customers>
+    {
 
-    //}
+    }
 }

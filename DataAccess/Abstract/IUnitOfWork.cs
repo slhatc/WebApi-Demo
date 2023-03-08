@@ -8,7 +8,7 @@ namespace DataAccess.Abstract
 {
     public interface IUnitOfWork : IAsyncDisposable
     {
-        //ICustomerDal Customers { get; }
+        ICustomerDal Customers { get; }
         IProductDal Products { get; }
         ICategoryDal Categories { get; }
 

@@ -11,6 +11,7 @@ namespace WebApi_Demo.Mapping
         {
             CreateMap<Products, ProductDto>().ReverseMap();
             CreateMap<Categories, CategoryDto>().ReverseMap();
+            CreateMap<Customers,CustomerDto>().ReverseMap();    
         }
     }
 }

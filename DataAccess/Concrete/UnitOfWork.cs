@@ -13,7 +13,7 @@ namespace DataAccess.Concrete
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DbContext _context;
-        //private EfCustomerDal _customerDal;
+        private EfCustomerDal _customerDal;
         private EfProductDal _productDal;
         private EfCategoryDal _categoryDal;
 
@@ -23,7 +23,7 @@ namespace DataAccess.Concrete
            
         }
 
-        //public ICustomerDal Customers => _customerDal ?? new EfCustomerDal(_context);
+        public ICustomerDal Customers => _customerDal ?? new EfCustomerDal(_context);
         public IProductDal Products => _productDal ?? new EfProductDal(_context);
         public ICategoryDal Categories => _categoryDal ?? new EfCategoryDal(_context);
 

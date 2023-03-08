@@ -14,9 +14,16 @@ namespace DataAccess.Concrete.EntityFramework.Context
         {
 
         }
-  
-        //public DbSet<Customers> Customers { get; set; }
+
+        public DbSet<Customers> Customers { get; set; }
         public  DbSet<Products> Products { get; set; }
         public  DbSet<Categories> Categories { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+
+            base.OnModelCreating(builder);
+        }
     }
 }

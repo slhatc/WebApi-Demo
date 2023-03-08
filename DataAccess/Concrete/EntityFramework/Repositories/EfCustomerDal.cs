@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework.Repositories
 {
-    //public class EfCustomerDal : EfRepositoryBase<Customers>, ICustomerDal
-    //{
-    //    public EfCustomerDal(DbContext context) : base(context)
-    //    {
-    //    }
-    //}
+    public class EfCustomerDal : EfRepositoryBase<Customers>, ICustomerDal
+    {
+        public EfCustomerDal(DbContext context) : base(context)
+        {
+        }
+    }
 }

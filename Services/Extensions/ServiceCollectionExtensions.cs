@@ -25,6 +25,8 @@ namespace Services.Extensions
             services.AddScoped(typeof(IEntityRepository<>), typeof(EfRepositoryBase<>));
             services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IAuthService,AuthManager>();
+            services.AddScoped<ITokenService,TokenManager>();
    
 
             

@@ -13,9 +13,9 @@ namespace DataAccess.Concrete
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DbContext _context;
-        private EfCustomerDal _customerDal;
-        private EfProductDal _productDal;
-        private EfCategoryDal _categoryDal;
+        //private EfCustomerDal _customerDal;
+        //private EfProductDal _productDal;
+        //private EfCategoryDal _categoryDal;
 
         public UnitOfWork(DbContext context)
         {
@@ -23,9 +23,9 @@ namespace DataAccess.Concrete
            
         }
 
-        public ICustomerDal Customers => _customerDal ?? new EfCustomerDal(_context);
-        public IProductDal Products => _productDal ?? new EfProductDal(_context);
-        public ICategoryDal Categories => _categoryDal ?? new EfCategoryDal(_context);
+        //public ICustomerDal Customers => _customerDal ?? new EfCustomerDal(_context);
+        //public IProductDal Products => _productDal ?? new EfProductDal(_context);
+        //public ICategoryDal Categories => _categoryDal ?? new EfCategoryDal(_context);
 
         public async Task<int> SaveAsync()
         {

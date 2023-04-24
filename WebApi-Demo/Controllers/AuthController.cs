@@ -23,6 +23,7 @@ namespace WebApi_Demo.Controllers
             var result = await _authService.CreateTokenAsync();
 
             return Ok(result);
+            //Test
         }
     }
 }
